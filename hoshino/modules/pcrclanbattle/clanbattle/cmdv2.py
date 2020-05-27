@@ -124,7 +124,7 @@ async def list_member(bot:NoneBot, ctx:Context_T, args:ParseResult):
     if l := len(mems):
         # 数字太多会被腾讯ban
         mems = map(lambda x: '{name}'.format_map(x), mems)
-        msg = [f"\n{clan['name']}   {l}/30 人\n____ QQ ____ | 昵称", *mems]
+        msg = [f"\n{clan['name']}   {l}/30 人\n", *mems]
         await bot.send(ctx, '\n'.join(msg), at_sender=True)
     else:
         raise NotFoundError(ERROR_ZERO_MEMBER)
