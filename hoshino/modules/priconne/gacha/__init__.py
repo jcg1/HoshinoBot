@@ -212,7 +212,7 @@ async def gacha_300(session:CommandSession):
     elif up >= 4:
         msg.append("记忆碎片一大堆！您是托吧？")
     msg.append(SWITCH_POOL_TIP)
-
+    print(msg)
     await session.send('\n'.join(msg), at_sender=True)
     silence_time = (100*up + 50*(up+s3) + 10*s2 + s1) * 1
     await silence(session.ctx, silence_time)
