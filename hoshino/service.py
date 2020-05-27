@@ -340,16 +340,16 @@ class Service:
                     if deny_tip:
                         session.finish(deny_tip, at_sender=True)
                     return
-                # if self._check_all(session.ctx):
-                #     try:
-                #         await func(session)
-                #         self.logger.info(f'Message {session.ctx["message_id"]} is handled as command by {func.__name__}.')
-                #     except (_PauseException, _FinishException, SwitchException) as e:
-                #         raise e
-                #     except Exception as e:
-                #         self.logger.exception(e)
-                #         self.logger.error(f'{type(e)} occured when {func.__name__} handling message {session.ctx["message_id"]}.')
-                #     return
+                if self._check_all(session.ctx):
+                    try:
+                        await func(session)
+                        self.logger.info(f'Message {session.ctx["message_id"]} is handled as command by {func.__name__}.')
+                    except (_PauseException, _FinishException, SwitchException) as e:
+                        raise e
+                    except Exception as e:
+                        self.logger.exception(e)
+                        self.logger.error(f'{type(e)} occured when {func.__name__} handling message {session.ctx["message_id"]}.')
+                    return
             return nonebot.on_command(name, **kwargs)(wrapper)
         return deco
 
