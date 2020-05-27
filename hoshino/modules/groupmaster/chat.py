@@ -62,3 +62,8 @@ async def chat_clanba(bot, ctx):
 async def chat_neigui(bot, ctx):
     if random.random() < 0.10:
         await bot.send(ctx, R.img('内鬼.png').cqcode)
+
+@sv.on_keyword(('迫害', '加害'))
+async def chat_pohai(session):
+    if random.random() < 0.05:
+        await session.send('算我一个！')
