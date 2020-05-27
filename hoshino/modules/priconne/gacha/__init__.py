@@ -175,9 +175,9 @@ async def gacha_300(session:CommandSession):
     else:
         step = 4
         pics = []
-        for i in range(0, lenth, step):
-            j = min(lenth, i + step)
-            pics.append(Chara.gen_team_pic(res[i:j], star_slot_verbose=False))
+        # for i in range(0, lenth, step):
+        #     j = min(lenth, i + step)
+        #     pics.append(Chara.gen_team_pic(res[i:j], star_slot_verbose=False))
         res = concat_pic(pics)
         res = pic2b64(res)
         res = MessageSegment.image(res)
