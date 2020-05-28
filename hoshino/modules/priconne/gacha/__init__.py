@@ -14,8 +14,8 @@ from .gacha import Gacha
 from ..chara import Chara
 
 sv = Service('gacha')
-jewel_limit = DailyNumberLimiter(6000)
-tenjo_limit = DailyNumberLimiter(1)
+jewel_limit = DailyNumberLimiter(15000)
+tenjo_limit = DailyNumberLimiter(10)
 
 GACHA_DISABLE_NOTICE = '本群转蛋功能已禁用\n如欲开启，请与维护组联系'
 JEWEL_EXCEED_NOTICE = f'您今天已经抽过{jewel_limit.max}钻了，欢迎明早5点后再来！'
@@ -169,18 +169,18 @@ async def gacha_300(session:CommandSession):
 
     res = [*(result['up']), *(result['s3'])]
     random.shuffle(res)
-    lenth = len(res)
-    if lenth <= 0:
-        res = "竟...竟然没有3★？！"
-    else:
-        step = 4
-        pics = []
-        for i in range(0, lenth, step):
-            j = min(lenth, i + step)
-            pics.append(Chara.gen_team_pic(res[i:j], star_slot_verbose=False))
-        res = concat_pic(pics)
-        res = pic2b64(res)
-        res = MessageSegment.image(res)
+    # lenth = len(res)
+    # if lenth <= 0:
+    #     res = "竟...竟然没有3★？！"
+    # else:
+    #     step = 4
+    #     pics = []
+    #     for i in range(0, lenth, step):
+    #         j = min(lenth, i + step)
+    #         pics.append(Chara.gen_team_pic(res[i:j], star_slot_verbose=False))
+    #     res = concat_pic(pics)
+    #     res = pic2b64(res)
+    #     res = MessageSegment.image(res)
 
     msg = [
         f"\n素敵な仲間が増えますよ！ {res}",
