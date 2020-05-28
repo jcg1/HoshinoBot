@@ -66,4 +66,4 @@ async def chat_neigui(bot, ctx):
 @sv.on_keyword(('迫害', '加害'))
 async def chat_pohai(bot, ctx):
     if random.random() < 0.60:
-        await bot.send('算我一个！')
+        await bot.send(ctx, '算我一个！')
