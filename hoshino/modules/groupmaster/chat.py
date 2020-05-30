@@ -48,7 +48,8 @@ async def nihaole(session):
 
 @sv.on_command('对不起', aliases=('优衣对不起', 'ue对不起'), only_to_me= True)
 async def chat_sorry(session):
-    await session.send('带你骨灰扬了！', at_sender=True)
+    list = ['你给我滚！', '带你骨灰扬了！', '\n第一次,有了喜欢的人\n还得到了一生的挚友\n两份喜悦相互重叠\n这双重的喜悦又带来了更多更多的喜悦\n本应已经得到了梦幻一般的幸福时光\n然而,为什么,会变成这样？', '明明是我先来的~']
+    await session.send(random.choice(list), at_sender=True)
 
 # ============================================ #
 
