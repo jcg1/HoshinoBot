@@ -46,6 +46,10 @@ async def nihaole(session):
     await session.send('不许好，憋回去！')
     await util.silence(session.ctx, 30)
 
+@sv.on_command('对不起', aliases=('优衣对不起', 'ue对不起'), only_to_me= True)
+async def chat_sorry(session):
+    await session.send('带你骨灰扬了！', at_sender=True)
+
 # ============================================ #
 
 @sv.on_keyword(('确实', '有一说一', 'u1s1', 'yysy'))
