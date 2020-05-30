@@ -48,8 +48,13 @@ async def nihaole(session):
 
 @sv.on_command('对不起', aliases=('优衣对不起', 'ue对不起'), only_to_me= True)
 async def chat_sorry(session):
-    list = ['你给我滚！', '带你骨灰扬了！', '\n第一次,有了喜欢的人\n还得到了一生的挚友\n两份喜悦相互重叠\n这双重的喜悦又带来了更多更多的喜悦\n本应已经得到了梦幻一般的幸福时光\n然而,为什么,会变成这样？', '明明是我先来的~']
-    await session.send(random.choice(list), at_sender=True)
+    duibuqi = ['你给我滚！', '带你骨灰扬了！', '\n第一次,有了喜欢的人\n还得到了一生的挚友\n两份喜悦相互重叠\n这双重的喜悦又带来了更多更多的喜悦\n本应已经得到了梦幻一般的幸福时光\n然而,为什么,会变成这样？', '明明是我先来的~']
+    await session.send(random.choice(duibuqi), at_sender=True)
+
+@sv.on_command('骂我', aliases =('老婆骂我','找骂','凌辱','欺负','继续','大声点','没吃饭么'))
+async def chat_sorry(session):
+    zuanyulu = ['wdnmd，闸总','哦~','バカ','変態','无路赛','エロい犬','八嘎hen tai无路赛','我给你[CQ:emoji, id = 128025]一锤','你[CQ:emoji, id = 128025]买菜必超级加倍','你在想peach','你春田必井','滚！']
+    await session.send(random.choice(zuanyulu), at_sender=True)
 
 # ============================================ #
 
