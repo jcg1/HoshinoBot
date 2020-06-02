@@ -9,7 +9,7 @@ from nonebot.exceptions import CQHttpError
 from hoshino import R, Service, Privilege
 from hoshino.util import FreqLimiter, DailyNumberLimiter
 
-_max = 5
+_max = 10
 EXCEED_NOTICE = f'您今天已经冲过{_max}次了，请明早5点后再来！'
 _nlmt = DailyNumberLimiter(_max)
 _flmt = FreqLimiter(5)
@@ -31,7 +31,7 @@ def get_setu():
     return setu_gener.__next__()
 
 
-@sv.on_rex(re.compile(r'不够[涩瑟色]|[涩瑟色]图|来一?[点份张].*[涩瑟色]|再来[点份张]|看过了|铜'), normalize=True)
+@sv.on_command(re.compile(r'不够[涩瑟色]|[涩瑟色]图|来一?[点份张].*[涩瑟色]|再来[点份张]|看过了|铜'), normalize=True, only_to_me= False)
 async def setu(bot:NoneBot, ctx, match):
     """随机叫一份涩图，对每个用户有冷却时间"""
     uid = ctx['user_id']
