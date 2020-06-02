@@ -41,7 +41,7 @@ async def rank_sheet(bot, ctx, match):
         await bot.send(ctx, '\n'.join(msg), at_sender=True)
         await util.silence(ctx, 60)
     elif is_cn:
-        msg.append(f'一图流：\n{p8}').append(f'缺玛那的话可以看这张升Rank优先级：\n{p9}')
+        msg.append(f'一图流看图1，缺玛那的话可以看图2升Rank优先级，：\n{p8}{p9}')
         await bot.send(ctx, '\n'.join(msg), at_sender=True)
         await util.silence(ctx, 60)
         # await bot.send(ctx, '\nB服：开服仅开放至金装，r10前无需考虑卡rank\n※装备强化消耗较多mana，如非前排建议不强化\n※唯一值得考量的是当前只开放至r8-3，保持r7满装满强或许会更强\n※关于卡r的原因可发送"bcr速查"研读【为何卡R卡星】一帖', at_sender=True)
