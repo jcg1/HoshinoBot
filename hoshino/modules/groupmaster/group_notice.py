@@ -15,8 +15,9 @@ async def increace_notice(session:NoticeSession):
     cfg = util.load_config(__file__)
     welcome_dic = cfg.get('increase_welcome', {})
     gid = str(session.ctx['group_id'])
-    if gid in welcome_dic:
-        await session.send(welcome_dic[gid], at_sender=True)
+    # if gid in welcome_dic:
+    print(session)
+    await session.send(f"欢迎{session.ctx['user_id']}", at_sender=True)
 
 
 @on_notice('group_decrease.kick_me')
