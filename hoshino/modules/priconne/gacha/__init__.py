@@ -167,23 +167,23 @@ async def gacha_300(session:CommandSession):
     s2 = len(result['s2'])
     s1 = len(result['s1'])
 
-    # res = [*(result['up']), *(result['s3'])]
-    # random.shuffle(res)
-    # lenth = len(res)
-    # if lenth <= 0:
-    #     res = "竟...竟然没有3★？！"
-    # else:
-    #     step = 4
-    #     pics = []
-    #     for i in range(0, lenth, step):
-    #         j = min(lenth, i + step)
-    #         pics.append(Chara.gen_team_pic(res[i:j], star_slot_verbose=False))
-    #     res = concat_pic(pics)
-    #     res = pic2b64(res)
-    #     res = MessageSegment.image(res)
+    res = [*(result['up']), *(result['s3'])]
+    random.shuffle(res)
+    lenth = len(res)
+    if lenth <= 0:
+        res = "竟...竟然没有3★？！"
+    else:
+        step = 4
+        pics = []
+        for i in range(0, lenth, step):
+            j = min(lenth, i + step)
+            pics.append(Chara.gen_team_pic(res[i:j], star_slot_verbose=False))
+        res = concat_pic(pics)
+        res = pic2b64(res)
+        res = MessageSegment.image(res)
 
     msg = [
-        # f"\n素敵な仲間が増えますよ！ {res}",
+        f"\n素敵な仲間が増えますよ！ {res}",
         f"\n素敵な仲間が増えますよ！",
         f"★★★×{up+s3} ★★×{s2} ★×{s1}",
         f"获得女神秘石×{50*(up+s3) + 10*s2 + s1}！\n第{result['first_up_pos']}抽首次获得up角色" if up else f"获得女神秘石{50*(up+s3) + 10*s2 + s1}个！"
