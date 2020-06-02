@@ -8,6 +8,8 @@ p4 = R.img('priconne/quick/r16-5-1.png').cqcode
 p5 = R.img('priconne/quick/r16-5-2.png').cqcode
 p6 = R.img('priconne/quick/r16-5-3.png').cqcode
 p7 = R.img('priconne/quick/r8-3.jpg').cqcode
+p8 = R.img('priconne/quick/b服rank表-一图.jpg').cqcode
+p9 = R.img('priconne/quick/b服rank表-缺钱.jpg').cqcode
 
 @sv.on_rex(r'^(\*?([日台国b])服?([前中后]*)卫?)?rank(表|推荐|指南)?$', normalize=True)
 async def rank_sheet(bot, ctx, match):
@@ -39,7 +41,10 @@ async def rank_sheet(bot, ctx, match):
         await bot.send(ctx, '\n'.join(msg), at_sender=True)
         await util.silence(ctx, 60)
     elif is_cn:
-        await bot.send(ctx, '\nB服：开服仅开放至金装，r10前无需考虑卡rank\n※装备强化消耗较多mana，如非前排建议不强化\n※唯一值得考量的是当前只开放至r8-3，保持r7满装满强或许会更强\n※关于卡r的原因可发送"bcr速查"研读【为何卡R卡星】一帖', at_sender=True)
+        msg.append(f'一图流：\n{p8}').append(f'缺玛那的话可以看这张升Rank优先级：\n{p9}')
+        await bot.send(ctx, '\n'.join(msg), at_sender=True)
+        await util.silence(ctx, 60)
+        # await bot.send(ctx, '\nB服：开服仅开放至金装，r10前无需考虑卡rank\n※装备强化消耗较多mana，如非前排建议不强化\n※唯一值得考量的是当前只开放至r8-3，保持r7满装满强或许会更强\n※关于卡r的原因可发送"bcr速查"研读【为何卡R卡星】一帖', at_sender=True)
         # await bot.send(ctx, str(p7))
         # await util.silence(ctx, 60)
 
