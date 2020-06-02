@@ -14,8 +14,8 @@ from .gacha import Gacha
 from ..chara import Chara
 
 sv = Service('gacha')
-jewel_limit = DailyNumberLimiter(6000)
-tenjo_limit = DailyNumberLimiter(1)
+jewel_limit = DailyNumberLimiter(15000)
+tenjo_limit = DailyNumberLimiter(10)
 
 GACHA_DISABLE_NOTICE = '本群转蛋功能已禁用\n如欲开启，请与维护组联系'
 JEWEL_EXCEED_NOTICE = f'您今天已经抽过{jewel_limit.max}钻了，欢迎明早5点后再来！'
@@ -167,25 +167,26 @@ async def gacha_300(session:CommandSession):
     s2 = len(result['s2'])
     s1 = len(result['s1'])
 
-    res = [*(result['up']), *(result['s3'])]
-    random.shuffle(res)
-    lenth = len(res)
-    if lenth <= 0:
-        res = "竟...竟然没有3★？！"
-    else:
-        step = 4
-        pics = []
-        for i in range(0, lenth, step):
-            j = min(lenth, i + step)
-            pics.append(Chara.gen_team_pic(res[i:j], star_slot_verbose=False))
-        res = concat_pic(pics)
-        res = pic2b64(res)
-        res = MessageSegment.image(res)
+    # res = [*(result['up']), *(result['s3'])]
+    # random.shuffle(res)
+    # lenth = len(res)
+    # if lenth <= 0:
+    #     res = "竟...竟然没有3★？！"
+    # else:
+    #     step = 4
+    #     pics = []
+    #     for i in range(0, lenth, step):
+    #         j = min(lenth, i + step)
+    #         pics.append(Chara.gen_team_pic(res[i:j], star_slot_verbose=False))
+    #     res = concat_pic(pics)
+    #     res = pic2b64(res)
+    #     res = MessageSegment.image(res)
 
     msg = [
-        f"\n素敵な仲間が増えますよ！ {res}",
+        # f"\n素敵な仲間が増えますよ！ {res}",
+        f"\n素敵な仲間が増えますよ！",
         f"★★★×{up+s3} ★★×{s2} ★×{s1}",
-        f"获得记忆碎片×{100*up}与女神秘石×{50*(up+s3) + 10*s2 + s1}！\n第{result['first_up_pos']}抽首次获得up角色" if up else f"获得女神秘石{50*(up+s3) + 10*s2 + s1}个！"
+        f"获得女神秘石×{50*(up+s3) + 10*s2 + s1}！\n第{result['first_up_pos']}抽首次获得up角色" if up else f"获得女神秘石{50*(up+s3) + 10*s2 + s1}个！"
     ]
 
     if up == 0 and s3 == 0:
@@ -210,9 +211,8 @@ async def gacha_300(session:CommandSession):
     elif up == 3:
         msg.append("抽井母五一气呵成！多出30等专武～")
     elif up >= 4:
-        msg.append("记忆碎片一大堆！您是托吧？")
+        msg.append("up角色抽那么多，您是托吧？")
     msg.append(SWITCH_POOL_TIP)
-    print(msg)
     await session.send('\n'.join(msg), at_sender=True)
     silence_time = (100*up + 50*(up+s3) + 10*s2 + s1) * 1
     await silence(session.ctx, silence_time)
