@@ -23,7 +23,7 @@ HOST = '172.17.0.1'   # linux + docker使用此条配置
 IS_CQPRO = False        # 是否使用Pro版酷Q功能
 
 # 资源库文件夹  Nonebot访问本机资源
-RESOURCE_DIR = './res/'
+RESOURCE_DIR = '/root/res/'
 
 # 资源库 URL  用于docker中的酷Q读取宿主机资源，注意以'/'结尾
 # 若留空则图片均采用base64编码发送，开销较大但部署方便
