@@ -56,6 +56,10 @@ async def chat_sorry(session):
     zuanyulu = ['wdnmd，闸总','哦~','バカ','変態','无路赛','エロい犬','八嘎hen tai无路赛','我给你🐴一锤','你🐴买菜必超级加倍','你在想peach','你春田必井','滚！']
     await session.send(random.choice(zuanyulu), at_sender=True)
 
+@sv.on_command('合刀', aliases = ('怎么合刀', '合刀图', '合刀方法'))
+async def hedao(bot, ctx):
+    await bot.send(ctx, R.img('合刀.jpg').cqcode)
+
 # ============================================ #
 
 @sv.on_keyword(('确实', '有一说一', 'u1s1', 'yysy'))

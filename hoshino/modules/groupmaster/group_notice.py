@@ -12,7 +12,7 @@ async def leave_notice(session:NoticeSession):
 
 @on_notice('group_increase')
 async def increace_notice(session:NoticeSession):
-    await session.send(f"欢迎加入星落de小镇行会~", at_sender=True)
+    await session.send(f"欢迎加入~", at_sender=True)
 
 
 @on_notice('group_decrease.kick_me')
