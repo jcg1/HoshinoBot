@@ -57,8 +57,8 @@ async def chat_sorry(session):
     await session.send(random.choice(zuanyulu), at_sender=True)
 
 @sv.on_command('合刀', aliases = ('怎么合刀', '合刀图', '合刀方法'))
-async def hedao(bot, ctx):
-    await bot.send(ctx, R.img('合刀.jpg').cqcode)
+async def hedao(session):
+    await session.send(R.img('合刀.jpg').cqcode)
 
 # ============================================ #
 
