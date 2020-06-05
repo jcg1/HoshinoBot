@@ -1,5 +1,5 @@
 from nonebot import on_notice, NoticeSession
-from hoshino import util
+from hoshino import util, R
 
 
 @on_notice('group_decrease.leave')
@@ -12,7 +12,11 @@ async def leave_notice(session:NoticeSession):
 
 @on_notice('group_increase')
 async def increace_notice(session:NoticeSession):
-    await session.send(f"欢迎加入~", at_sender=True)
+    pic = R.img(f"欢迎新人.jpg").cqcode
+    await session.send(f"欢迎加入~"
+                       f"萌新你好~我叫优衣 ≧▽≦"
+                       f"是一只AI娘~请多多指教哟！"
+                       f"\n{pic}", at_sender=True)
 
 
 @on_notice('group_decrease.kick_me')
