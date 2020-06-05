@@ -13,9 +13,9 @@ async def leave_notice(session:NoticeSession):
 @on_notice('group_increase')
 async def increace_notice(session:NoticeSession):
     pic = R.img(f"欢迎新人.jpg").cqcode
-    await session.send(f"欢迎加入~"
-                       f"萌新你好~我叫优衣 ≧▽≦"
-                       f"是一只AI娘~请多多指教哟！"
+    await session.send(f"\n欢迎加入~"
+                       f"\n萌新你好~我叫优衣 ≧▽≦"
+                       f"\n是一只AI娘~请多多指教哟！"
                        f"\n{pic}", at_sender=True)
 
 
