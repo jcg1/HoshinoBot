@@ -13,6 +13,7 @@ import os
 from datetime import datetime, timedelta
 from typing import List
 from matplotlib import pyplot as plt
+from random import sample
 try:
     import ujson as json
 except:
@@ -250,6 +251,21 @@ async def add_challenge(bot:NoneBot, ctx:Context_T, args:ParseResult):
         'flag': BattleMaster.NORM
     })
     await process_challenge(bot, ctx, challenge)
+
+@cb_cmd(('抽奖', '抽个奖'), ArgParser(usage='!抽奖 <中奖人数>', arg_dict={
+    '': ArgHolder(tip='中奖人数', type=int)}))
+async def choujiang_member(bot:NoneBot, ctx:Context_T, args:ParseResult):
+    bm = BattleMaster(ctx['group_id'])
+    clan = _check_clan(bm)
+    mems = bm.list_member(1)
+    lucky = sample(mems,args.get(''))
+    if l := len(lucky):
+        # 数字太多会被腾讯ban
+        lucky = map(lambda x: '{name}'.format_map(x), lucky)
+        msg = [f"\n中奖成员为：", *lucky]
+        await bot.send(ctx, '\n'.join(msg), at_sender=True)
+    else:
+        raise NotFoundError(ERROR_ZERO_MEMBER)
 
 
 @cb_cmd(('出尾刀', '收尾', '尾刀'), ArgParser(usage='!出尾刀 (<伤害值>) (@<qq号>)', arg_dict={
