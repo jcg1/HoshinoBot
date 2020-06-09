@@ -2,11 +2,11 @@ import itertools
 from hoshino import util, R, CommandSession
 from . import sv
 
-p1 = R.img('priconne/quick/r15-5-0.png').cqcode
-p2 = R.img('priconne/quick/r15-5.png').cqcode
-p4 = R.img('priconne/quick/r16-5-1.png').cqcode
-p5 = R.img('priconne/quick/r16-5-2.png').cqcode
-p6 = R.img('priconne/quick/r16-5-3.png').cqcode
+p1 = R.img('priconne/quick/r16-3-tw-0.png').cqcode
+p2 = R.img('priconne/quick/r16-3-tw-1.png').cqcode
+p4 = R.img('priconne/quick/r17-3-jp-1.png').cqcode
+p5 = R.img('priconne/quick/r17-3-jp-2.png').cqcode
+p6 = R.img('priconne/quick/r17-3-jp-3.png').cqcode
 p7 = R.img('priconne/quick/r8-3.jpg').cqcode
 p8 = R.img('priconne/quick/b服rank表-一图.jpg').cqcode
 p9 = R.img('priconne/quick/b服rank表-缺钱.jpg').cqcode
@@ -17,16 +17,13 @@ async def rank_sheet(bot, ctx, match):
     is_tw = match.group(2) == '台'
     is_cn = match.group(2) == '国' or match.group(2) == 'b'
     if not is_jp and not is_tw and not is_cn:
-        await bot.send(ctx, '\n请问您要查询哪个服务器的rank表？\n*日rank表\n*台rank表\n*B服rank表\n※B服：开服仅开放至金装，r10前无需考虑卡rank，装备强化消耗较多mana，如非前排建议不强化', at_sender=True)
+        await bot.send(ctx, '\n请问您要查询哪个服务器的rank表？\n*日rank表\n*台rank表\n*B服rank表\n※B服：当前仅开放至金装，r10前无需考虑卡rank，装备强化消耗较多mana，如非前排建议不强化', at_sender=True)
         return
     msg = [
-        '\n※不定期搬运，来源见图片',
-        '※图中若有广告与本bot无关',
-        '※表格仅供参考，升r有风险，强化需谨慎',
-        '※升级手Q至8.3.5以查看图片'
+        '\n※表格仅供参考，升r有风险，强化需谨慎',
     ]
     if is_jp:
-        msg.append('R16-5 rank表：')
+        msg.append('※不定期搬运自图中群号\n※图中广告为原作者推广，与本bot无关\nR17-3 rank表：')
         pos = match.group(3)
         if not pos or '前' in pos:
             msg.append(str(p4))
@@ -37,7 +34,7 @@ async def rank_sheet(bot, ctx, match):
         await bot.send(ctx, '\n'.join(msg), at_sender=True)
         await util.silence(ctx, 60)
     elif is_tw:
-        msg.append(f'R15-5 rank表：\n{p1}{p2}')
+        msg.append(f'※不定期搬运自漪夢奈特\n※油管有介绍视频及原文档\nR16-3 rank表：\n{p1}{p2}')
         await bot.send(ctx, '\n'.join(msg), at_sender=True)
         await util.silence(ctx, 60)
     elif is_cn:
@@ -103,7 +100,8 @@ YUKARI_SHEET = f'''
 ※大圈是1动充电对象 PvP测试
 ※黄骑四号位例外较多
 ※对面羊驼或中后卫坦 有可能歪
-※我方羊驼算一号位'''
+※我方羊驼算一号位
+※图片搬运自漪夢奈特'''
 @sv.on_command('yukari-sheet', aliases=YUKARI_SHEET_ALIAS)
 async def yukari_sheet(session:CommandSession):
     await session.send(YUKARI_SHEET, at_sender=True)
