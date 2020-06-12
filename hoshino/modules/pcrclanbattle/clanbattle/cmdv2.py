@@ -767,9 +767,7 @@ async def stat_score(bot:NoneBot, ctx:Context_T, args:ParseResult):
     name = list(map(lambda i: i[2], stat))
     y_pos = list(range(yn))
 
-    res = ''
-    for index in stat:
-        res += index[2] + ': ' + index[3] + '\n'
+    res = map(lambda i: i[2] + ':' + i[3], stat)
 
     if score[0] >= 1e8:
         unit = 1e8
