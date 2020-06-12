@@ -767,7 +767,7 @@ async def stat_score(bot:NoneBot, ctx:Context_T, args:ParseResult):
     name = list(map(lambda i: i[2], stat))
     y_pos = list(range(yn))
 
-    res_list = list(map(lambda s,n: n+':'+s, score, name))
+    res_list = list(map(lambda s,n: n+':'+str(s), score, name))
     res = '\n'.join(res_list)
 
     if score[0] >= 1e8:
