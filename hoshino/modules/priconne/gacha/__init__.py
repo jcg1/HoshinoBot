@@ -107,13 +107,13 @@ async def gacha_1(session:CommandSession):
     gid = str(session.ctx['group_id'])
     gacha = Gacha(_group_pool[gid])
     chara, hiishi = gacha.gacha_one(gacha.up_prob, gacha.s3_prob, gacha.s2_prob)
-    silence_time = hiishi * 60
+    # silence_time = hiishi * 60
 
     res = f'{chara.name} {"★"*chara.star}'
     if sv.bot.config.IS_CQPRO:
         res = f'{chara.icon.cqcode} {res}'
 
-    await silence(session.ctx, silence_time)
+    # await silence(session.ctx, silence_time)
     await session.send(f'素敵な仲間が増えますよ！\n{res}\n{SWITCH_POOL_TIP}', at_sender=True)
 
 
@@ -129,7 +129,7 @@ async def gacha_10(session:CommandSession):
     gacha = Gacha(_group_pool[gid])
     result, hiishi = gacha.gacha_ten()
     # silence_time = hiishi * 6 if hiishi < SUPER_LUCKY_LINE else hiishi * 60
-    silence_time = 1
+    # silence_time = 1
 
     if sv.bot.config.IS_CQPRO:
         res1 = Chara.gen_team_pic(result[:5], star_slot_verbose=False)
@@ -150,7 +150,7 @@ async def gacha_10(session:CommandSession):
     if hiishi >= SUPER_LUCKY_LINE:
         await session.send('恭喜海豹！おめでとうございます！')
     await session.send(f'素敵な仲間が増えますよ！\n{res}\n{SWITCH_POOL_TIP}', at_sender=True)
-    await silence(session.ctx, silence_time)
+    # await silence(session.ctx, silence_time)
 
 
 @sv.on_command('gacha_300', deny_tip=GACHA_DISABLE_NOTICE, aliases=gacha_300_aliases, only_to_me=True)
@@ -215,8 +215,8 @@ async def gacha_300(session:CommandSession):
     msg.append(SWITCH_POOL_TIP)
     await session.send('\n'.join(msg), at_sender=True)
     # silence_time = (100*up + 50*(up+s3) + 10*s2 + s1) * 1
-    silence_time = 1
-    await silence(session.ctx, silence_time)
+    # silence_time = 1
+    # await silence(session.ctx, silence_time)
 
 
 @sv.on_rex(r'^氪金$', normalize=False)
