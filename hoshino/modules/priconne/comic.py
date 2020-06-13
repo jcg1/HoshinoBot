@@ -2,6 +2,7 @@ import os
 import re
 import random
 import asyncio
+import datetime
 from urllib.parse import urljoin, urlparse, parse_qs
 try:
     import ujson as json
@@ -125,3 +126,11 @@ async def update_seeker():
     pic = R.img('priconne/comic', get_pic_name(episode)).cqcode
     msg = f'プリンセスコネクト！Re:Dive公式4コマ更新！\n第{episode}話 {title}\n{pic}'
     await sv.broadcast(msg, 'PCR官方四格', 0.5)
+
+@sv.scheduled_job('cron', hour = '18', minute='05')
+async def pixivPictyreGet():
+    today=datetime.date.today()
+    oneday=datetime.timedelta(days=1)
+    yesterday=today-oneday
+    msg = f'pixiv搜图:type=rank mode=day_male page=1 date={yesterday}'
+    await sv.broadcast(msg, '', 0.5)
