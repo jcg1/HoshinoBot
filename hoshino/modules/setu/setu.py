@@ -50,6 +50,9 @@ async def setu(bot:NoneBot, ctx, match):
         await bot.send(ctx, pic.cqcode)
     except CQHttpError:
         sv.logger.error(f"发送图片{pic.path}失败")
+        path =pic.path
+        if os.path.exists(path):
+            os.remove(path)
         try:
             await bot.send(ctx, '涩图太涩，发不出去勒...')
         except:
