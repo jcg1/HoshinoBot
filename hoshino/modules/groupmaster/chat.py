@@ -33,7 +33,7 @@ async def chat_waifu(session):
 async def chat_laogong(session):
     await session.send('你给我滚！', at_sender=True)
 
-@sv.on_command('贴贴', only_to_me=True)
+@sv.on_command('贴贴', aliases=('贴贴~', ), only_to_me=True)
 async def chat_tietie(session):
     await session.send('贴贴~', at_sender=True)
 
