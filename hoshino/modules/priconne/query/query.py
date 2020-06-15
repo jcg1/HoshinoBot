@@ -110,7 +110,7 @@ async def yukari_sheet(session:CommandSession):
 
 @sv.on_command('未来活动表', aliases=('未来卡池','未来活动','千里眼','万里眼'))
 async def yukari_sheet(session:CommandSession):
-    await session.send(R.img('priconne/quick/黄骑充电.jpg').cqcode, at_sender=True)
+    await session.send(p9.cqcode, at_sender=True)
     await util.silence(session.ctx, 60)
 
 
