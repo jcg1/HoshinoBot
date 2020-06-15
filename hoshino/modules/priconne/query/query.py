@@ -8,8 +8,8 @@ p4 = R.img('priconne/quick/r17-3-jp-1.png').cqcode
 p5 = R.img('priconne/quick/r17-3-jp-2.png').cqcode
 p6 = R.img('priconne/quick/r17-3-jp-3.png').cqcode
 p7 = R.img('priconne/quick/r8-3.jpg').cqcode
-p8 = R.img('priconne/quick/b服rank表-一图.jpg').cqcode
-p9 = R.img('priconne/quick/b服rank表-缺钱.jpg').cqcode
+p8 = R.img('priconne/quick/6月r9-3Rank推荐.jpg').cqcode
+p9 = R.img('priconne/quick/全活动卡池事件表.jpg').cqcode
 
 @sv.on_rex(r'^(\*?([日台国b])服?([前中后]*)卫?)?rank(表|推荐|指南)?$', normalize=True)
 async def rank_sheet(bot, ctx, match):
@@ -38,7 +38,7 @@ async def rank_sheet(bot, ctx, match):
         await bot.send(ctx, '\n'.join(msg), at_sender=True)
         await util.silence(ctx, 60)
     elif is_cn:
-        msg.append(f'一图流看图1，缺玛那的话可以看图2升Rank优先级，：\n{p8}{p9}')
+        msg.append(f'※不定期搬运网上攻略rank推荐\n※图中内容仅为推荐，出错雨我无瓜\nR9-3 rank表：\n{p8}')
         await bot.send(ctx, '\n'.join(msg), at_sender=True)
         await util.silence(ctx, 60)
         # await bot.send(ctx, '\nB服：开服仅开放至金装，r10前无需考虑卡rank\n※装备强化消耗较多mana，如非前排建议不强化\n※唯一值得考量的是当前只开放至r8-3，保持r7满装满强或许会更强\n※关于卡r的原因可发送"bcr速查"研读【为何卡R卡星】一帖', at_sender=True)
@@ -49,6 +49,7 @@ async def rank_sheet(bot, ctx, match):
 @sv.on_command('arena-database', aliases=('jjc', 'JJC', 'JJC作业', 'JJC作业网', 'JJC数据库', 'jjc作业', 'jjc作业网', 'jjc数据库', 'JJC作業', 'JJC作業網', 'JJC數據庫', 'jjc作業', 'jjc作業網', 'jjc數據庫'), only_to_me=False)
 async def say_arina_database(session):
     await session.send('公主连接Re:Dive 竞技场编成数据库\n日文：https://nomae.net/arenadb \n中文：https://pcrdfans.com/battle')
+
 
 
 OTHER_KEYWORDS = '【日rank】【台rank】【b服rank】【jjc作业网】【黄骑充电表】【一个顶俩】'
@@ -105,6 +106,11 @@ YUKARI_SHEET = f'''
 @sv.on_command('yukari-sheet', aliases=YUKARI_SHEET_ALIAS)
 async def yukari_sheet(session:CommandSession):
     await session.send(YUKARI_SHEET, at_sender=True)
+    await util.silence(session.ctx, 60)
+
+@sv.on_command('未来活动表', aliases=('未来卡池','未来活动','千里眼','万里眼'))
+async def yukari_sheet(session:CommandSession):
+    await session.send(R.img('priconne/quick/黄骑充电.jpg').cqcode, at_sender=True)
     await util.silence(session.ctx, 60)
 
 
