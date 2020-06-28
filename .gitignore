@@ -1,10 +1,9 @@
 # Config Files
 #config.json
-config.py
-config.json
-hoshino/config/
->>>>>>> 125e5a2f9a1a556697104b1a62ca7ec80433078b
-local_coolq_config/
+#config.py
+#config.json
+#hoshino/config/
+#local_coolq_config/
 
 # Database
 db.json
