@@ -6,6 +6,7 @@ from hoshino import Service
 from hoshino.typing import NoticeSession
 
 sv1 = Service('group-leave-notice')
+sv2 = Service('group-welcome')
 
 @sv1.on_notice('group_decrease.leave')
 async def leave_notice(session: NoticeSession):
@@ -19,7 +20,7 @@ async def increace_notice(session:NoticeSession):
                        f"\n是一只AI娘~请多多指教哟！"
                        f"\n{pic}", at_sender=True)
 
-sv2 = Service('group-welcome')
+
 
 # @sv2.on_notice('group_increase')
 # async def increace_welcome(session: NoticeSession):
