@@ -29,7 +29,7 @@ USE_CQPRO = True       # 是否使用Pro版酷Q功能
 # 如果你不清楚上面在说什么，请用base64协议（发送大图时可能会失败）
 RES_PROTOCOL = 'base64'
 # 资源库文件夹，需可读可写，windows下注意反斜杠转义
-RES_DIR = r'./res/'
+RES_DIR = '/root/res/'
 # 使用http协议时需填写，原则上该url应指向RES_DIR目录
 RES_URL = 'http://127.0.0.1:5000/static/'
 
