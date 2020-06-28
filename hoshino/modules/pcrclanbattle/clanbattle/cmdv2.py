@@ -789,9 +789,9 @@ async def stat_score(bot:NoneBot, ctx:Context_T, args:ParseResult):
     plt.close()
 
 # <<<<<<< HEAD
-#     msg = f"{res}\n※伤害统计请发送“!伤害统计”"
+    msg = f"{res}\n※伤害统计请发送“!伤害统计”"
 # =======
-    msg = f"{ms.image(pic)}\n※伤害统计请发送“!伤害统计”"
+#     msg = f"{ms.image(pic)}\n※伤害统计请发送“!伤害统计”"
     await bot.send(ctx, msg, at_sender=True)
 
 
