@@ -68,7 +68,7 @@ def pic2b64(pic:Image) -> str:
 
 def fig2b64(plt:plt) -> str:
     buf = BytesIO()
-    plt.rcParams['font.sans-serif'] = ['simhei']
+    plt.rcParams['font.sans-serif'] = 'simhei'
     plt.savefig(buf, format='PNG', dpi=100)
     base64_str = base64.b64encode(buf.getvalue()).decode('utf8')
     return 'base64://' + base64_str
