@@ -68,7 +68,7 @@ def pic2b64(pic:Image) -> str:
 
 def fig2b64(plt:plt) -> str:
     buf = BytesIO()
-    plt.rcParams['font.sans-serif'] = ['KaiTi']  # 指定默认字体
+    plt.rcParams['font.sans-serif'] = ['simhei']  # 指定默认字体
     plt.rcParams['axes.unicode_minus'] = False  # 解决保存图像是负号'-'显示为方块的问题
     plt.savefig(buf, format='PNG', dpi=100, encoding='utf8')
     base64_str = base64.b64encode(buf.getvalue()).decode()
