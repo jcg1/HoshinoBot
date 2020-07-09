@@ -761,9 +761,6 @@ async def stat_score(bot:NoneBot, ctx:Context_T, args:ParseResult):
     name = list(map(lambda i: i[2], stat))
     y_pos = list(range(yn))
 
-    res_list = list(map(lambda s,n: n+':'+str(s), score, name))
-    res = '\n'.join(res_list)
-
     if score[0] >= 1e8:
         unit = 1e8
         unit_str = 'e'
@@ -788,10 +785,7 @@ async def stat_score(bot:NoneBot, ctx:Context_T, args:ParseResult):
     pic = util.fig2b64(plt)
     plt.close()
 
-# <<<<<<< HEAD
-    msg = f"{res}\n※伤害统计请发送“!伤害统计”"
-# =======
-#     msg = f"{ms.image(pic)}\n※伤害统计请发送“!伤害统计”"
+    msg = f"{ms.image(pic)}\n※伤害统计请发送“!伤害统计”"
     await bot.send(ctx, msg, at_sender=True)
 
 
