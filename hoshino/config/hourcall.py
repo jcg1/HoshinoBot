@@ -1,4 +1,4 @@
-HOUR_CALLS = [
+HOUR_CALLS_ON = [
     "HOUR_CALL_4",
     "HOUR_CALL_5",
     "HOUR_CALL_6",
