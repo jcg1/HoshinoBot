@@ -6,21 +6,21 @@
 # hoshino监听的端口与ip
 PORT = 8080
 # HOST = '127.0.0.1'      # Windows部署使用此条配置
-HOST = '172.17.0.1'   # linux + docker使用此条配置
+HOST = '172.17.0.1'  # linux + docker使用此条配置
 # docker桥的ip可能随环境不同而有变化
 # 使用这行命令`ip addr show docker0 | grep -Po 'inet \K[\d.]+'`查看你的docker桥ip
 # HOST = '172.18.0.1'   # 阿里云的linux + docker多数情况是这样
 # HOST = '0.0.0.0'      # 开放公网访问使用此条配置（不安全）
 
-DEBUG = False           # 调试模式
+DEBUG = False  # 调试模式
 
-SUPERUSERS = [773900035,827531533,785204560,1179115757,907424852]    # 填写超级用户的QQ号，可填多个用半角逗号","隔开
-NICKNAME = '优衣'           # 机器人的昵称。呼叫昵称等同于@bot，可用元组配置多个昵称
+SUPERUSERS = [773900035, 827531533, 785204560, 1179115757, 907424852]  # 填写超级用户的QQ号，可填多个用半角逗号","隔开
+NICKNAME = '优衣'  # 机器人的昵称。呼叫昵称等同于@bot，可用元组配置多个昵称
 
-COMMAND_START = {''}    # 命令前缀（空字符串匹配任何消息）
-COMMAND_SEP = set()     # 命令分隔符（hoshino不需要该特性，保持为set()即可）
+COMMAND_START = {''}  # 命令前缀（空字符串匹配任何消息）
+COMMAND_SEP = set()  # 命令分隔符（hoshino不需要该特性，保持为set()即可）
 
-USE_CQPRO = True       # 是否使用Pro版酷Q功能
+USE_CQPRO = True  # 是否使用Pro版酷Q功能
 
 # 发送图片的协议
 # 可选 http, file, base64
@@ -32,7 +32,6 @@ RES_PROTOCOL = 'base64'
 RES_DIR = '/root/res/'
 # 使用http协议时需填写，原则上该url应指向RES_DIR目录
 RES_URL = 'http://127.0.0.1:5000/static/'
-
 
 # 启用的模块
 # 初次尝试部署时请先保持默认
