@@ -1,24 +1,23 @@
 import pytz
+import random
 from datetime import datetime
-import hoshino
-from hoshino import Service
+from hoshino import util
+from hoshino import R
+from hoshino.service import Service
 
-sv = Service('hourcall', enable_on_default=False, help_='时报')
-tz = pytz.timezone('Asia/Shanghai')
+sv = Service('hourcallyao', enable_on_default=False)
 
 def get_hour_call():
-    """挑出一组时报，每日更换，一日之内保持相同"""
-    cfg = hoshino.config.hourcall
-    now = datetime.now(tz)
-    hc_groups = cfg.HOUR_CALLS_ON
+    """从HOUR_CALLS中挑出一组时报，每日更换，一日之内保持相同"""
+    config = util.load_config(__file__)
+    now = datetime.now(pytz.timezone('Asia/Shanghai'))
+    hc_groups = config["HOUR_CALLS"]
     g = hc_groups[ now.day % len(hc_groups) ]
-    return cfg.HOUR_CALLS[g]
+    return config[g]
 
-
-@sv.scheduled_job('cron', hour='*')
+@sv.scheduled_job('cron', hour='*', )
 async def hour_call():
-    now = datetime.now(tz)
-    if 2 <= now.hour <= 4:
-        return  # 宵禁 免打扰
-    msg = get_hour_call()[now.hour]
-    await sv.broadcast(msg, 'hourcall', 0)
+    now = datetime.now(pytz.timezone('Asia/Shanghai'))
+    if not now.hour % 6 == 0:
+        return
+    await sv.broadcast(str(R.img(f"yao{random.randint(1, 4)}.png").cqcode), 'hourcall', 0)
