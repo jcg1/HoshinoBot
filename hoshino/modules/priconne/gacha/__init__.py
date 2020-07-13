@@ -207,7 +207,7 @@ async def gacha_10(bot, ev: CQEvent):
         if hiishi >= SUPER_LUCKY_LINE:
             await bot.send(ev, '恭喜海豹！おめでとうございます！')
         await bot.send(ev, f'素敵な仲間が増えますよ！\n{res}\n{SWITCH_POOL_TIP}\n※发送“优衣宝石”可以查看还剩多少宝石', at_sender=True)
-        await silence(ev, silence_time)
+        # await silence(ev, silence_time)
 
 
 
@@ -281,8 +281,8 @@ async def gacha_300(bot, ev: CQEvent):
         #bot梦幻联动请无视
 
         await bot.send(ev, '\n'.join(msg), at_sender=True)
-        silence_time = (10*up + s2)
-        await silence(ev, silence_time)
+        # silence_time = (10*up + s2)
+        # await silence(ev, silence_time)
 
 
 
