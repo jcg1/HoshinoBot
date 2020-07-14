@@ -5,6 +5,13 @@ HOUR_CALLS_ON = [
     "HOUR_CALL_7",
     "HOUR_CALL_8"
 ]
+HOUR_CALLS: [
+    "HOUR_CALL_4",
+    "HOUR_CALL_5",
+    "HOUR_CALL_6",
+    "HOUR_CALL_7",
+    "HOUR_CALL_8"
+]
 
 HOUR_CALL_4 = [
     "好，今天是我，哥特负责。嘛，不也挺好？呐，骑士君开心吗？…咦？头转过去了。现在刚好0点。",
