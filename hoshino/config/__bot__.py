@@ -15,6 +15,7 @@ HOST = '172.17.0.1'  # linux + docker使用此条配置
 DEBUG = False  # 调试模式
 
 SUPERUSERS = [773900035, 827531533, 785204560, 1179115757, 907424852]  # 填写超级用户的QQ号，可填多个用半角逗号","隔开
+PYS = {773900035}
 NICKNAME = '优衣'  # 机器人的昵称。呼叫昵称等同于@bot，可用元组配置多个昵称
 
 COMMAND_START = {''}  # 命令前缀（空字符串匹配任何消息）
@@ -42,11 +43,13 @@ MODULES_ON = {
     'dice',
     'groupmaster',
     'hourcall',
+    'hourcallyao',
     # 'kancolle',
     # 'mikan',
     'pcrclanbattle',
     'priconne',
     'setu',
+    'shebot',
     'translate',
     # 'twitter',
 }
