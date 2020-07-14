@@ -1,7 +1,7 @@
 import os
 from collections import defaultdict
 import random
-from hoshino import Service
+from hoshino import Service, R
 from hoshino.typing import *
 from hoshino.util import DailyNumberLimiter, pic2b64, concat_pic, silence
 from hoshino import util
@@ -11,12 +11,7 @@ try:
 except:
     import json
 
-import random
-from hoshino import Service, R
-from hoshino.typing import CQEvent
-from hoshino.util import DailyNumberLimiter
-
-sv = Service('pcr-competition', bundle='pcr娱乐', help_='[@优衣 赛跑模拟]模拟来一局赛🐎')
+sv = Service('pcr-competition', enable_on_default=True, bundle='pcr娱乐', help_='[@bot赛跑模拟]模拟来一局赛🐎')
 
 _pool_config_file = os.path.expanduser('~/.hoshino/group_pool_config.json')
 _group_pool = {}
@@ -202,7 +197,7 @@ async def select_player(bot, ev: CQEvent):
 
 
 
-@sv.on_rex(('赛跑模拟'), only_to_me=True)
+@sv.on_fullmatch(('赛跑模拟'), only_to_me=True)
 async def pcr_comp(bot, ev: CQEvent):
     global g_result, g_uid
     uid = ev.user_id
