@@ -123,7 +123,7 @@ async def _(bot,ctx):
         print("发送r18")
         await send_setus(bot,ctx,r18_path,setus,g_with_url,is_to_delete,g_msg_to_delete)
         if user_priv < Priv.PY:
-            sv.add_black_user(uid, 10)
+            sv.add_black_user(uid, 60)
     else:
         print('无关消息')
 
@@ -200,7 +200,7 @@ async def switch(bot,ctx):
         pass
 
 bot = nonebot.get_bot()
-@bot.on_message(g_msg_to_delete)
+@bot.on_message
 async def del_msg(ctx):
     self_id = ctx['self_id']
     global g_msg_to_delete
