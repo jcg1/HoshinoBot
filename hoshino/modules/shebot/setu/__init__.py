@@ -21,7 +21,7 @@ g_config = load_config()
 g_r18_groups = set(g_config.get('r18_groups',[]))
 g_delete_groups = set(g_config.get('delete_groups',[]))
 
-g_msg_to_delete = {'顶不住', '我好了'}
+g_msg_to_delete = {}
 
 #初始化色图仓库
 nr18_path = NR_PATH #存放非r18图片
