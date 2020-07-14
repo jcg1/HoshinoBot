@@ -197,7 +197,7 @@ async def select_player(bot, ev: CQEvent):
 
 
 
-@sv.on_fullmatch(('赛跑模拟'), only_to_me=True)
+@sv.on_rex(('赛跑模拟'), only_to_me=True)
 async def pcr_comp(bot, ev: CQEvent):
     global g_result, g_uid
     uid = ev.user_id
