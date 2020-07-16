@@ -69,7 +69,7 @@ async def _(bot,ctx):
             ret = await bot.send(ctx,pic)
             msg_id = ret['message_id']
             if is_to_delete:
-                add_to_delete(msg_id,g_msg_to_delete) #30秒后删除
+                add_to_delete(msg_id,g_msg_to_delete) #15秒后删除
             return
 
         robj = COMMON_RE.match(message)

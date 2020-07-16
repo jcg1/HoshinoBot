@@ -59,7 +59,7 @@ def get_random_pic(path):
     return rfile
 
 def add_to_delete(msg_id:int,to_delete:dict):
-        to_delete[msg_id] = time.time() + 30
+        to_delete[msg_id] = time.time() + 15
 
 
 path = os.path.join(os.path.dirname(__file__),'setu_config.json')
