@@ -98,7 +98,8 @@ async def _(bot,ctx):
 
     elif SECRET_RE.match(message):
         if gid not in g_r18_groups and gid!= 0:
-            await bot.send(ctx,'本群未开启r18色图，请私聊机器人,但注意不要过分请求，否则拉黑')
+            # await bot.send(ctx,'本群未开启r18色图，请私聊机器人,但注意不要过分请求，否则拉黑')
+            await bot.send(ctx, '本群未开启r18色图')
             return
 
         if not g_is_online:

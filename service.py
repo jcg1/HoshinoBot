@@ -117,8 +117,8 @@ class Service:
         group_id = ctx.get('group_id',0)
         if not self.allow_group:
             return False
-        if group_id==0 and self.allow_private:#为私聊且允许私聊
-            return True
+        # if group_id==0 and self.allow_private:#为私聊且允许私聊
+        #     return True
         if not self.enable:
             return False
         if not self.is_default_open and group_id not in self.enable_groups:
