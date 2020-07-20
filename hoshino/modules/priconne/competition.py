@@ -176,9 +176,9 @@ async def compe(bot, ev: CQEvent, p:str):
     for j in range(4):
         if p == r_pri[j]:
             msg += f'恭喜获得第{j+1}位奖励，宝石×{stone[j]}\n========================'
-            silence_time = (3 - j) * 30
+            # silence_time = (3 - j) * 30
     await bot.send(ev, msg)
-    await silence(ev, silence_time)
+    # await silence(ev, silence_time)
     save_player(result)
 
 

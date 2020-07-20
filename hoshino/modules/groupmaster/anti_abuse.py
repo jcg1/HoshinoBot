@@ -98,7 +98,7 @@ async def confess_word(session):
     elif ctx['message_type'] == 'discuss':
         msg_from += f'@[讨论组:{ctx["discuss_id"]}]'
     hoshino.logger.critical(f'Self: {ctx["self_id"]}, Message {ctx["message_id"]} from {msg_from}: {ctx["message"]}')
-    hoshino.priv.set_block_user(user_id, timedelta(hours=0))
+    hoshino.priv.move_block_user(user_id, timedelta(hours=0))
     pic = R.img(f"chieri{random.randint(1, 4)}.jpg").cqcode
     await session.send(f"这次就先原谅你啦！バーカー\n{pic}", at_sender=True)
     await util.silence(session.ctx, 8 * 60 * 60)
