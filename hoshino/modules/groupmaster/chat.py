@@ -26,6 +26,10 @@ async def chat_waifu(bot, ev):
         await bot.send(ev, 'mua~')
 
 
+@sv.on_fullmatch(('爬', '爪巴'), only_to_me=True)
+async def chat_pa(bot, ev):
+    await bot.send(ev, R.img('爬就爬.png').cqcode)
+
 @sv.on_fullmatch('老公', only_to_me=True)
 async def chat_laogong(bot, ev):
     await bot.send(ev, '你给我滚！', at_sender=True)

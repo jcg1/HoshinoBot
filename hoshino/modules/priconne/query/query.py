@@ -40,7 +40,7 @@ async def rank_sheet(bot, ev):
         await bot.send(ev, '\n'.join(msg), at_sender=True)
         await util.silence(ev, 60)
     elif is_cn:
-        msg.append(f'※不定期搬运网上攻略rank推荐\n※图中内容仅为推荐，出错雨我无瓜\nR9-3 rank表：\n{p8}')
+        msg.append(f'※不定期搬运网上攻略rank推荐\n※图中内容仅为推荐，出错雨我无瓜\nR9-5 rank表：\n{p8}')
         await bot.send(ev, '\n'.join(msg), at_sender=True)
         await util.silence(ev, 60)
 
