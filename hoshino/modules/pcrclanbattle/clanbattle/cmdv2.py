@@ -123,8 +123,10 @@ async def list_member(bot:NoneBot, ctx:Context_T, args:ParseResult):
     mems = bm.list_member(1)
     if l := len(mems):
         # 数字太多会被腾讯ban
-        mems = map(lambda x: '{name}'.format_map(x), mems)
-        msg = [f"\n{clan['name']}   {l}/30 人", *mems]
+        # mems = map(lambda x: '{name}'.format_map(x), mems)
+        # msg = [f"\n{clan['name']}   {l}/30 人", *mems]
+        mems = map(lambda x: '{uid: <11,d} | {name}'.format_map(x), mems)
+        msg = [f"\n{clan['name']}   {l}/30 人\n____ QQ ____ | 昵称", *mems]
         await bot.send(ctx, '\n'.join(msg), at_sender=True)
     else:
         raise NotFoundError(ERROR_ZERO_MEMBER)
@@ -260,7 +262,8 @@ async def choujiang_member(bot:NoneBot, ctx:Context_T, args:ParseResult):
     lucky = sample(mems,args.get(''))
     if l := len(lucky):
         # 数字太多会被腾讯ban
-        lucky = map(lambda x: '{name}'.format_map(x), lucky)
+        # lucky = map(lambda x: '{name}'.format_map(x), lucky)
+        lucky = map(lambda x: '{uid: <11,d} | {name}'.format_map(x), mems)
         msg = [f"\n中奖成员为：", *lucky]
         await bot.send(ctx, '\n'.join(msg), at_sender=True)
     else:
